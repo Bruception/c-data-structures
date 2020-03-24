@@ -4,14 +4,14 @@
 
 #include "stack.h"
 
-#define DEFAULT_CAPACITY 16
+stack* create_stack(int capacity) {
+  if(capacity <= 0) exit(1);
 
-stack* create_stack() {
   stack* stk = (stack*)malloc(sizeof(stack));
 
-  stk->capacity = DEFAULT_CAPACITY;
+  stk->capacity = capacity;
 
-  stk->data = (int*)malloc(sizeof(int) * DEFAULT_CAPACITY);
+  stk->data = (int*)malloc(sizeof(int) * capacity);
   stk->top = -1;
 
   return stk;

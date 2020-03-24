@@ -10,7 +10,7 @@ typedef struct stack_struct {
 
 } stack;
 
-stack* create_stack();
+stack* create_stack(int capacity);
 
 int peek_stack(stack* stk);
 void push_stack(stack* stk, int value);
