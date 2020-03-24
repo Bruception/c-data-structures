@@ -3,7 +3,7 @@
 #include "linkedlist.h"
 
 int main(void) {
-  printf("\n\n###### Testing linkedlist.c ... ######\n\n");
+  printf("\n\n###### Testing linkedlist ######\n\n");
 
   char yes[] = "Yes.";
   char no[] = "No.";

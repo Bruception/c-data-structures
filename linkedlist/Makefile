@@ -1,5 +1,5 @@
 CC = gcc
-OBJS = linkedlist.o main.o
+OBJS = linkedlist.o testlinkedlist.o
 HDRS = linkedlist.h
 
 CFLAGS = -Wall
@@ -10,8 +10,8 @@ linkedlist.out : $(OBJS)
 linkedlist.o : linkedlist.c
 	$(CC) $(CFLAGS) -c linkedlist.c
 
-main.o : main.c
-	$(CC) $(CFLAGS) -c main.c
+testlinkedlist.o : testlinkedlist.c
+	$(CC) $(CFLAGS) -c testlinkedlist.c
 
 $(OBJS) : $(HDRS)
 
