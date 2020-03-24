@@ -87,7 +87,7 @@ void clear_linkedlist(linkedlist* list) {
 }
 
 void dump_linkedlist(linkedlist* list) {
-  printf("LinkedList@%p :\n", list);
+  printf("LinkedList@%p - Size: %d :\n", list, list->size);
 
   printf("(x) -> ");
 
