@@ -19,5 +19,6 @@ linkedlist* create_linkedlist();
 void add_linkedlist(linkedlist* list, int value);
 int search_linkedlist(linkedlist* list, int value);
 int delete_linkedlist(linkedlist* list, int value);
+void dump_linkedlist(linkedlist* list);
 
 #endif
