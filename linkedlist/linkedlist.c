@@ -55,7 +55,7 @@ int delete_linkedlist(linkedlist* list, int value) {
 
   while(current != NULL) {
     if(current->value == value) {
-      
+
       previous->next = current->next;
       free(current);
 
@@ -68,8 +68,22 @@ int delete_linkedlist(linkedlist* list, int value) {
     current = current->next;
   }
 
-
   return -1;
+}
+
+void clear_linkedlist(linkedlist* list) {
+  node* current = list->head->next;
+  node* garbage = NULL;
+
+  while(current != NULL) {
+    garbage = current;
+    current = current->next;
+
+    free(garbage);
+  }
+
+  list->head->next = NULL;
+  list->size = 0;
 }
 
 void dump_linkedlist(linkedlist* list) {
