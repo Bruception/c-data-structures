@@ -54,6 +54,12 @@ int pop_stack(stack* stk) {
   return value;
 }
 
+void clear_stack(stack* stk) {
+  if(stk->top == -1) return;
+
+  stk->top = -1;
+}
+
 void dump_stack(stack* stk) {
   printf("Stack@%p - Size: %d :\n", stk, stk->top + 1);
 
