@@ -54,3 +54,19 @@ int pop_stack(stack* stk) {
   return value;
 }
 
+void dump_stack(stack* stk) {
+  printf("Stack@%p - Size: %d :\n", stk, stk->top + 1);
+
+  if(stk->top == -1) {
+    printf("[]\n");
+    return;
+  }
+
+  printf("[%d", stk->data[stk->top]);
+
+  for(int i = stk->top - 1; i >= 0; --i) {
+    printf(", %d", stk->data[i]);
+  }
+
+  printf("]\n");
+}
