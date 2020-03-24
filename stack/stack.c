@@ -33,7 +33,7 @@ void ensure_capacity(stack* stk) {
   int* newdata = (int*)realloc(stk->data, sizeof(int) * stk->capacity);
 
   // Allocation failed
-  if(newdata == NULL) return;
+  if(newdata == NULL) exit(1);
 
   stk->data = newdata;
 }
@@ -44,3 +44,13 @@ void push_stack(stack* stk, int value) {
   ++stk->top;
   stk->data[stk->top] = value;
 }
+
+int pop_stack(stack* stk) {
+  if(stk->top == -1) exit(1);
+
+  int value = stk->data[stk->top];
+  --stk->top;
+
+  return value;
+}
+
