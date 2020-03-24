@@ -35,6 +35,19 @@ void add_linkedlist(linkedlist* list, int value) {
   ++list->size;
 }
 
+// Returns -1 when search value is not in the list, returns 0 otherwise.
+int search_linkedlist(linkedlist* list, int value) {
+  node* current = list->head->next;
+
+  while(current != NULL) {
+    if(current->value == value) return 0;
+
+    current = current->next;
+  }
+
+  return -1;
+}
+
 void dump_linkedlist(linkedlist* list) {
   printf("LinkedList@%p :\n", list);
 
