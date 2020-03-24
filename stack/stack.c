@@ -10,18 +10,23 @@ stack* create_stack() {
   stack* stk = (stack*)malloc(sizeof(stack));
 
   stk->capacity = DEFAULT_CAPACITY;
-  stk->size = 0;
 
   stk->data = (int*)malloc(sizeof(int) * DEFAULT_CAPACITY);
-  stk->top = stk->data;
+  stk->top = -1;
 
   return stk;
 }
 
 int peek_stack(stack* stk) {
-  // Exit if stack is empty
-  if(stk->size == 0) exit(1);
+  // Exit if stack is empty.
+  if(stk->top == -1) exit(1);
 
-  return *(stk->top);
+  return stk->data[stk->top];
 }
 
+void push_stack(stack* stk, int value) {
+  if(stk->top == stk->capacity) return;
+
+  ++stk->top;
+  stk->data[stk->top] = value;
+}
