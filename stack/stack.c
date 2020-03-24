@@ -17,3 +17,11 @@ stack* create_stack() {
 
   return stk;
 }
+
+int peek_stack(stack* stk) {
+  // Exit if stack is empty
+  if(stk->size == 0) exit(1);
+
+  return *(stk->top);
+}
+
