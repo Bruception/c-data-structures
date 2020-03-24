@@ -24,8 +24,22 @@ int peek_stack(stack* stk) {
   return stk->data[stk->top];
 }
 
+void ensure_capacity(stack* stk) {
+  if(stk->top < stk->capacity) return;
+
+  // Double capacity
+  stk->capacity *= 2;
+
+  int* newdata = (int*)realloc(stk->data, sizeof(int) * stk->capacity);
+
+  // Allocation failed
+  if(newdata == NULL) return;
+
+  stk->data = newdata;
+}
+
 void push_stack(stack* stk, int value) {
-  if(stk->top == stk->capacity) return;
+  ensure_capacity(stk);
 
   ++stk->top;
   stk->data[stk->top] = value;
