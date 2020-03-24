@@ -48,6 +48,30 @@ int search_linkedlist(linkedlist* list, int value) {
   return -1;
 }
 
+// Returns -1 when no deletion occurs, returns 0 otherwise.
+int delete_linkedlist(linkedlist* list, int value) {
+  node* previous = list->head;
+  node* current = list->head->next;
+
+  while(current != NULL) {
+    if(current->value == value) {
+      
+      previous->next = current->next;
+      free(current);
+
+      --list->size;
+
+      return 0;
+    }
+
+    previous = current;
+    current = current->next;
+  }
+
+
+  return -1;
+}
+
 void dump_linkedlist(linkedlist* list) {
   printf("LinkedList@%p :\n", list);
 
