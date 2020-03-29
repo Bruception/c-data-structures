@@ -1,14 +1,14 @@
 CC = gcc
-OBJS = binarysearchtree.o testbst.o
-HDRS = binarysearchtree.h
+OBJS = bst.o testbst.o
+HDRS = bst.h
 
 CFLAGS = -Wall
 
-binarysearchtree.out : $(OBJS)
-	$(CC) $(CFLAGS) -o binarysearchtree.out $(OBJS)
+bst.out : $(OBJS)
+	$(CC) $(CFLAGS) -o bst.out $(OBJS)
 
-binarysearchtree.o : binarysearchtree.c
-	$(CC) $(CFLAGS) -c binarysearchtree.c
+bst.o : bst.c
+	$(CC) $(CFLAGS) -c bst.c
 
 testbst.o : testbst.c
 	$(CC) $(CFLAGS) -c testbst.c
@@ -16,4 +16,4 @@ testbst.o : testbst.c
 $(OBJS) : $(HDRS)
 
 clean:
-	rm *.o binarysearchtree.out
+	rm *.o bst.out

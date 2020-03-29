@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "binarysearchtree.h"
+#include "bst.h"
 
 int main(void) {
   return 0;
