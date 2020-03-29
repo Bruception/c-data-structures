@@ -47,5 +47,20 @@ void add_bst(bst* bt, int value) {
   bst_node** dest_ptr = (value <= parent->value) ?
   (&(parent->left)) : (&(parent->right));
 
-  *(dest_ptr) = new_bst_node;
+  *dest_ptr = new_bst_node;
+}
+
+int search_bst(bst* bt, int value) {
+  bst_node* current = bt->head;
+
+  while(current != NULL) {
+    if(value < current->value)
+      current = current->left;
+    else if(value > current->value)
+      current = current->right;
+    else
+      return 0;
+  }
+
+  return -1;
 }
