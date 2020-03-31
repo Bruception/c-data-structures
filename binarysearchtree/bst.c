@@ -65,6 +65,16 @@ int search_bst(bst* bt, int value) {
   return -1;
 }
 
+bst_node* min_node_bst(bst_node* root) {
+  bst_node* current = root;
+
+  while(current->left != NULL) {
+    current = current->left;
+  }
+
+  return current;
+}
+
 int max_bst(bst* bt) {
   if(bt->size == 0) exit(1);
 
@@ -80,11 +90,7 @@ int max_bst(bst* bt) {
 int min_bst(bst* bt) {
   if(bt->size == 0) exit(1);
 
-  bst_node* current = bt->head;
+  bst_node* min_node = min_node_bst(bt->head);
 
-  while(current->left != NULL) {
-    current = current->left;
-  }
-
-  return current->value;
+  return min_node->value;
 }
