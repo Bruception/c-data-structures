@@ -65,14 +65,14 @@ int search_bst(bst* bt, int value) {
   return -1;
 }
 
-bst_node* min_node_bst(bst_node* root) {
+int min_helper(bst_node* root) {
   bst_node* current = root;
 
   while(current->left != NULL) {
     current = current->left;
   }
 
-  return current;
+  return current->value;
 }
 
 bst_node* delete_helper(bst* bt, bst_node* current, int value) {
@@ -84,10 +84,10 @@ bst_node* delete_helper(bst* bt, bst_node* current, int value) {
     current->right = delete_helper(bt, current->right, value);
   } else {
     if(current->left != NULL && current->right != NULL) {
-      bst_node* min_right_node = min_node_bst(current->right);
+      int min_right = min_helper(current->right);
 
-      current->value = min_right_node->value;
-      current->right = delete_helper(bt, current->right, min_right_node->value);
+      current->value = min_right;
+      current->right = delete_helper(bt, current->right, min_right);
     } else {
       bst_node* new_child = (current->left == NULL) ? (current->right) : (current->left);
 
@@ -125,7 +125,5 @@ int max_bst(bst* bt) {
 int min_bst(bst* bt) {
   if(bt->size == 0) exit(1);
 
-  bst_node* min_node = min_node_bst(bt->head);
-
-  return min_node->value;
+  return min_helper(bt->head);
 }
