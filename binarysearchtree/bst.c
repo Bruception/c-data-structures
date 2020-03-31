@@ -89,7 +89,8 @@ bst_node* delete_helper(bst* bt, bst_node* current, int value) {
       current->value = min_right;
       current->right = delete_helper(bt, current->right, min_right);
     } else {
-      bst_node* new_child = (current->left == NULL) ? (current->right) : (current->left);
+      bst_node* new_child = (current->left == NULL) ?
+      (current->right) : (current->left);
 
       free(current);
       --bt->size;
@@ -126,4 +127,21 @@ int min_bst(bst* bt) {
   if(bt->size == 0) exit(1);
 
   return min_helper(bt->head);
+}
+
+void inorder_bst(bst_node* node) {
+  if(node == NULL) return;
+
+  inorder_bst(node->left);
+  printf("%d ", node->value);
+  inorder_bst(node->right);
+}
+
+// Dump using in-order
+void dump_bst(bst* bt) {
+  printf("BinarySearchTree@%p - Size: %d :\n", bt, bt->size);
+
+  inorder_bst(bt->head);
+
+  printf("\n");
 }
