@@ -103,7 +103,7 @@ bst_node* delete_helper(bst* bt, bst_node* current, int value) {
 }
 
 int delete_bst(bst* bt, int value) {
-  if(bt->size == 0) exit(1);
+  if(bt->size == 0) return -1;
 
   int oldSize = bt->size;
   bt->head = delete_helper(bt, bt->head, value);
