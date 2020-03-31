@@ -31,7 +31,7 @@ int main(void) {
   int contains = 0;
   char* choice;
 
-  for(int i = 0; i <= 100; i += 5) {
+  for(i = 0; i <= 100; i += 5) {
     contains = search_bst(mybst, i);
     choice = (contains == 0) ? (yes) : (no);
 
@@ -44,7 +44,7 @@ int main(void) {
 
   printf("\nDeleting bst ... \n");
 
-  for(int i = 0; i <= 100; i += 5) {
+  for(i = 0; i <= 100; i += 5) {
     contains = delete_bst(mybst, i);
     choice = (contains == 0) ? (yes) : (no);
 
