@@ -25,6 +25,7 @@ int search_bst(bst* bt, int value);
 int delete_bst(bst* bt, int value);
 int max_bst(bst* bt);
 int min_bst(bst* bt);
+void clear_bst(bst* bt);
 void dump_bst(bst* bt);
 
 #endif

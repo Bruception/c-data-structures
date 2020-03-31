@@ -129,6 +129,26 @@ int min_bst(bst* bt) {
   return min_helper(bt->head);
 }
 
+void clear_helper(bst_node* root) {
+  if(root->left != NULL) {
+    clear_helper(root->left);
+  }
+  if(root->right != NULL) {
+    clear_helper(root->right);
+  }
+
+  free(root);
+}
+
+void clear_bst(bst* bt) {
+  if(bt->size == 0) return;
+
+  clear_helper(bt->head);
+  bt->head = NULL;
+
+  bt->size = 0;
+}
+
 void inorder_bst(bst_node* node) {
   if(node == NULL) return;
 
